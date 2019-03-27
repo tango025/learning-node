@@ -1,13 +1,12 @@
 const fs = require('fs');
 const _ = require('lodash');
-
+const yargs = require('yargs');
 const notes = require('./notes.js')
-
-const argument = process.argv[2];
-
-if(argument === 'read'){ console.log('read');}
-else if(argument === 'list'){ console.log('list');}
-else if(argument === 'add') {console.log('add');}
-else if (argument === 'remove') { console.log('remove'); }
+const args = yargs.argv;
+const argument = args._[0];
+if(argument === 'read'){ notes.readNote(args.title);}
+else if(argument === 'list'){ notes.getAll();}
+else if(argument === 'add') {notes.addNote(args.title,args.body)}
+else if (argument === 'remove') { notes.remove(args.title); }
 
 else {console.log('wrong command');}
