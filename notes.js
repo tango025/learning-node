@@ -28,7 +28,7 @@ var note = {
     }
 }
 var getAll = () => {
-    console.log("Notes list");
+    return fetchNotes();
 }
 var remove = (title)=>{
     var notes = fetchNotes();

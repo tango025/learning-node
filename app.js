@@ -9,7 +9,12 @@ if(argument === 'read'){
     console.log(result? notes.logNote(result):`no note found`);
 
 }
-else if(argument === 'list'){ notes.getAll();}
+else if(argument === 'list'){
+    var notesArr = notes.getAll();
+    notesArr.forEach((note)=>{
+        console.log(notes.logNote(note)+"\n");
+    })
+}
 else if (argument === 'add') { 
     var noteAdded = notes.addNote(args.title,args.body)
     console.log((noteAdded) ? notes.logNote(noteAdded):"Duplicate node found");
