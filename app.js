@@ -2,7 +2,30 @@ const fs = require('fs');
 const _ = require('lodash');
 const yargs = require('yargs');
 const notes = require('./notes.js')
-const args = yargs.argv;
+var titleObj =  {
+    describe:'Title of the note',
+    demand: true,
+    alias:'t'
+}
+var bodyObj = {
+    describe: 'body of the node',
+    demand: true,
+    alias: "b"
+} 
+const args = yargs
+    .command('add','add a new note',{
+        title : titleObj,
+        body: bodyObj
+    })
+    .command('list','list all nodes')
+    .command('read','read the perticular node',{
+        title :titleObj
+    })
+    .command('remove', 'remove the perticular node', {
+        title: titleObj
+    })
+    .help()
+    .argv;
 const argument = args._[0];
 if(argument === 'read'){    
     var result = notes.readNote(args.title);
