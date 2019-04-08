@@ -33,4 +33,4 @@ var geocode = (addr)=>{
     })
 }
 
-geocode('632014').then((loc)=>{console.log(JSON.stringify(loc))},(err)=>{console.log(err)});
+geocode('akcakudahk').then((loc)=>{console.log(JSON.stringify(loc))},(err)=>{console.log(err)});
